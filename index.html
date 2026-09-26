@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CS 439 Agentic Software Engineering</title>
+  <meta name="description" content="CS 439 Agentic Software Engineering, Spring 2027. Tuesday and Thursday, 2:00–3:15 PM, RB130.">
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --surface: #ffffff;
+      --text: #1c1c1e;
+      --muted: #5c5c63;
+      --border: #e2e2de;
+      --accent: #2f5bd3;
+      --accent-soft: #e9eefc;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141416;
+        --surface: #1d1d20;
+        --text: #ededf0;
+        --muted: #a2a2aa;
+        --border: #313136;
+        --accent: #8aa7ff;
+        --accent-soft: #232a40;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 16px 48px;
+    }
+
+    .term {
+      display: inline-block;
+      margin: 0 0 16px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 6vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    h1 .code {
+      display: block;
+      color: var(--accent);
+      font-size: 0.55em;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .lede {
+      margin: 20px 0 40px;
+      color: var(--muted);
+      font-size: 1.125rem;
+      max-width: 60ch;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 1.125rem;
+    }
+
+    dl {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 12px 24px;
+      margin: 0;
+    }
+
+    dt {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    dd { margin: 0; }
+
+    .soon p { margin: 0; color: var(--muted); }
+
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 480px) {
+      main { padding-top: 40px; }
+      dl { grid-template-columns: 1fr; gap: 2px; }
+      dd { margin-bottom: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="term">Ball State University · Spring 2027</p>
+    <h1><span class="code">CS 439</span>Agentic Software Engineering</h1>
+    <p class="lede">An upper-level elective on developing software with AI coding agents.</p>
+
+    <section class="card" aria-labelledby="logistics">
+      <h2 id="logistics">Course logistics</h2>
+      <dl>
+        <dt>Course</dt>
+        <dd>CS 439 Agentic Software Engineering</dd>
+
+        <dt>Term</dt>
+        <dd>Spring 2027</dd>
+
+        <dt>Meetings</dt>
+        <dd>Tuesday &amp; Thursday, 2:00–3:15 PM</dd>
+
+        <dt>Room</dt>
+        <dd>RB130</dd>
+
+        <dt>Audience</dt>
+        <dd>Juniors and seniors</dd>
+
+        <dt>Prerequisite</dt>
+        <dd>CS 222 Advanced Programming</dd>
+
+        <dt>Instructor</dt>
+        <dd>TBA</dd>
+
+        <dt>Required tools</dt>
+        <dd>A laptop, plus a Claude Code (Claude) or Codex (ChatGPT) subscription for the semester</dd>
+      </dl>
+    </section>
+
+    <section class="card soon" aria-labelledby="coming-soon">
+      <h2 id="coming-soon">Content coming soon</h2>
+      <p>The syllabus, schedule, and course materials will be posted here before the semester begins.</p>
+    </section>
+
+    <footer>
+      <p>CS 439 Agentic Software Engineering · Ball State University · Spring 2027</p>
+    </footer>
+  </main>
+</body>
+</html>
