@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CS 439 Social Main Image</title>
+  <style>
+    :root {
+      --bg: #101012;
+      --surface: #1a1a1e;
+      --line: #34343b;
+      --text: #f4f4f6;
+      --muted: #a7a7b0;
+      --red: #ba0c2f;
+      --red-bright: #ff3b5c;
+      --mono: "Cascadia Code", "Cascadia Mono", Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    .canvas {
+      position: relative;
+      width: 1080px;
+      height: 1350px;
+      padding: 96px 96px 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 95% 4%, rgba(186, 12, 47, 0.6), rgba(186, 12, 47, 0) 45%),
+        radial-gradient(circle at 0% 72%, rgba(186, 12, 47, 0.24), rgba(186, 12, 47, 0) 40%),
+        var(--bg);
+    }
+
+    .canvas::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    .canvas > * { position: relative; }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 8px 22px;
+      border: 2px solid var(--red-bright);
+      border-radius: 999px;
+      color: var(--text);
+    }
+
+    .new {
+      margin: 76px 0 0;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--red-bright);
+    }
+
+    .code {
+      margin: 18px 0 0;
+      font-family: var(--mono);
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--red-bright);
+    }
+
+    h1 {
+      margin: 6px 0 0;
+      font-size: 132px;
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    h1 .accent { color: var(--red-bright); }
+
+    .tagline {
+      margin: 56px 0 0;
+      font-size: 54px;
+      line-height: 1.12;
+      font-weight: 700;
+    }
+
+    .sub {
+      margin: 22px 0 0;
+      font-size: 34px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .sub strong { display: block; margin-top: 4px; color: var(--text); }
+
+    footer {
+      margin: auto -96px 0;
+      padding: 44px 96px 52px;
+      background: var(--red);
+    }
+
+    .url {
+      margin: 0;
+      font-family: var(--mono);
+      font-size: 46px;
+      font-weight: 700;
+    }
+
+    .meta {
+      margin: 12px 0 0;
+      font-size: 28px;
+      font-weight: 600;
+      opacity: 0.92;
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <span>Ball State University · Computer Science</span>
+      <span class="pill">Spring 2027</span>
+    </div>
+
+    <p class="new">New course</p>
+    <p class="code">CS 439</p>
+    <h1>Agentic<br>Software<br><span class="accent">Engineering</span></h1>
+
+    <p class="tagline">Lead your own team of<br>AI coding agents.</p>
+    <p class="sub">Anyone can type a prompt. Leading a team of agents takes the engineering to make them deliver, and the judgment to know when they have. <strong>Train like a lead engineer.</strong></p>
+
+    <footer>
+      <p class="url">hergin.github.io/cs439</p>
+      <p class="meta">Juniors &amp; seniors · Prerequisite: CS 222 · Tue/Thu 2:00–3:15 PM</p>
+    </footer>
+  </div>
+</body>
+</html>

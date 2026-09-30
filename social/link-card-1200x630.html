@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CS 439 Link Card</title>
+  <style>
+    :root {
+      --bg: #101012;
+      --line: #34343b;
+      --text: #f4f4f6;
+      --muted: #a7a7b0;
+      --red: #ba0c2f;
+      --red-bright: #ff3b5c;
+      --mono: "Cascadia Code", "Cascadia Mono", Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    .canvas {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      padding: 64px 72px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 96% 8%, rgba(186, 12, 47, 0.62), rgba(186, 12, 47, 0) 48%),
+        radial-gradient(circle at 0% 100%, rgba(186, 12, 47, 0.22), rgba(186, 12, 47, 0) 40%),
+        var(--bg);
+    }
+
+    .canvas::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .canvas > * { position: relative; }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 6px 18px;
+      border: 2px solid var(--red-bright);
+      border-radius: 999px;
+      color: var(--text);
+    }
+
+    .code {
+      margin: 44px 0 0;
+      font-family: var(--mono);
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--red-bright);
+    }
+
+    h1 {
+      margin: 4px 0 0;
+      font-size: 88px;
+      line-height: 0.98;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    h1 .accent { color: var(--red-bright); }
+
+    .bottom {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 32px;
+    }
+
+    .tagline {
+      margin: 0;
+      font-size: 36px;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    .url {
+      margin: 0;
+      padding: 12px 20px;
+      border-radius: 10px;
+      background: var(--red);
+      font-family: var(--mono);
+      font-size: 24px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <span>Ball State University · Computer Science</span>
+      <span class="pill">Spring 2027</span>
+    </div>
+
+    <p class="code">CS 439</p>
+    <h1>Agentic Software<br><span class="accent">Engineering</span></h1>
+
+    <div class="bottom">
+      <p class="tagline">Lead your own team of<br>AI coding agents.</p>
+      <p class="url">hergin.github.io/cs439</p>
+    </div>
+  </div>
+</body>
+</html>

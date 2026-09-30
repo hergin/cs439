@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CS 439 Spotlight: Security</title>
+  <style>
+    :root {
+      --bg: #101012; --surface: #1a1a1e; --line: #34343b;
+      --text: #f4f4f6; --muted: #a7a7b0;
+      --red: #ba0c2f; --red-bright: #ff3b5c;
+      --mono: "Cascadia Code", "Cascadia Mono", Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--bg); color: var(--text); font-family: "Segoe UI", system-ui, sans-serif; }
+    .canvas {
+      position: relative; width: 1080px; height: 1350px; padding: 96px 96px 0;
+      display: flex; flex-direction: column; overflow: hidden;
+      background:
+        radial-gradient(circle at 95% 4%, rgba(186, 12, 47, 0.6), rgba(186, 12, 47, 0) 45%),
+        radial-gradient(circle at 0% 72%, rgba(186, 12, 47, 0.24), rgba(186, 12, 47, 0) 40%),
+        var(--bg);
+    }
+    .canvas::before {
+      content: ""; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .canvas > * { position: relative; }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 24px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+    }
+    .pill { padding: 8px 22px; border: 2px solid var(--red-bright); border-radius: 999px; color: var(--text); }
+    footer { margin: auto -96px 0; padding: 40px 96px 48px; background: var(--red); }
+    .url { margin: 0; font-family: var(--mono); font-size: 42px; font-weight: 700; }
+    .meta { margin: 10px 0 0; font-size: 26px; font-weight: 600; opacity: 0.92; }
+
+    .content { position: relative; margin-top: 170px; }
+    .number {
+      position: absolute; right: -36px; top: -40px; z-index: 0;
+      font-family: var(--mono); font-size: 420px; font-weight: 700; line-height: 1;
+      color: rgba(255, 255, 255, 0.045); letter-spacing: -0.04em;
+    }
+    .label { position: relative; margin: 0; font-size: 26px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red-bright); }
+    h1 { position: relative; margin: 20px 0 0; font-size: 116px; line-height: 1; font-weight: 900; letter-spacing: -0.03em; color: var(--red-bright); }
+    .rule { width: 120px; height: 6px; margin: 56px 0 0; background: var(--text); border-radius: 3px; opacity: 0.9; }
+    .line { position: relative; margin: 56px 0 0; text-wrap: balance; font-size: 74px; line-height: 1.12; font-weight: 800; letter-spacing: -0.015em; }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <span>CS 439 · Agentic Software Engineering</span>
+      <span class="pill">8 / 8</span>
+    </div>
+
+    <div class="content">
+      <div class="number" aria-hidden="true">08</div>
+    <p class="label">The engineering behind better agents</p>
+    <h1>Security</h1>
+    <div class="rule"></div>
+    <p class="line">Give your software and your agents only the access they need.</p>
+    </div>
+    <footer>
+      <p class="url">hergin.github.io/cs439</p>
+      <p class="meta">CS 439 Agentic Software Engineering · Ball State University · Spring 2027</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CS 439 Hook Post</title>
+  <style>
+    :root {
+      --bg: #101012; --surface: #1a1a1e; --line: #34343b;
+      --text: #f4f4f6; --muted: #a7a7b0;
+      --red: #ba0c2f; --red-bright: #ff3b5c;
+      --mono: "Cascadia Code", "Cascadia Mono", Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--bg); color: var(--text); font-family: "Segoe UI", system-ui, sans-serif; }
+    .canvas {
+      position: relative; width: 1080px; height: 1350px; padding: 96px 96px 0;
+      display: flex; flex-direction: column; overflow: hidden;
+      background:
+        radial-gradient(circle at 95% 4%, rgba(186, 12, 47, 0.6), rgba(186, 12, 47, 0) 45%),
+        radial-gradient(circle at 0% 72%, rgba(186, 12, 47, 0.24), rgba(186, 12, 47, 0) 40%),
+        var(--bg);
+    }
+    .canvas::before {
+      content: ""; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .canvas > * { position: relative; }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 24px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+    }
+    .pill { padding: 8px 22px; border: 2px solid var(--red-bright); border-radius: 999px; color: var(--text); }
+    footer { margin: auto -96px 0; padding: 40px 96px 48px; background: var(--red); }
+    .url { margin: 0; font-family: var(--mono); font-size: 42px; font-weight: 700; }
+    .meta { margin: 10px 0 0; font-size: 26px; font-weight: 600; opacity: 0.92; }
+
+    .content { margin-top: auto; }
+    .code { margin: 0; font-family: var(--mono); font-size: 40px; font-weight: 700; color: var(--red-bright); }
+    .quiet { margin: 36px 0 0; font-size: 84px; line-height: 1.05; font-weight: 700; color: var(--muted); letter-spacing: -0.02em; }
+    .loud { margin: 28px 0 0; font-size: 108px; line-height: 0.98; font-weight: 900; letter-spacing: -0.03em; }
+    .loud .accent { color: var(--red-bright); }
+    .rule { width: 120px; height: 6px; margin: 64px 0 0; background: var(--red-bright); border-radius: 3px; }
+    .note { margin: 36px 0 0; font-size: 36px; line-height: 1.35; color: var(--muted); max-width: 820px; text-wrap: balance; }
+    .note strong { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <span>Ball State University · Computer Science</span>
+      <span class="pill">Spring 2027</span>
+    </div>
+
+    <div class="content">
+    <p class="code">CS 439</p>
+    <p class="quiet">Anyone can type<br>a prompt.</p>
+    <p class="loud">Engineers make<br>agents <span class="accent">deliver.</span></p>
+    <div class="rule"></div>
+    <p class="note">Learn the <strong>software engineering</strong> that makes AI coding agents deliver better software.</p>
+    </div>
+    <footer>
+      <p class="url">hergin.github.io/cs439</p>
+      <p class="meta">CS 439 Agentic Software Engineering · Ball State University · Spring 2027</p>
+    </footer>
+  </div>
+</body>
+</html>

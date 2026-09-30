@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CS 439 Flyer</title>
+  <style>
+    @page { size: letter; margin: 0; }
+
+    :root {
+      --bg: #101012;
+      --surface: #1a1a1e;
+      --surface-2: #232328;
+      --line: #34343b;
+      --text: #f4f4f6;
+      --muted: #a7a7b0;
+      --red: #ba0c2f;
+      --red-bright: #ff3b5c;
+      --green: #3ddc97;
+      --amber: #ffc857;
+      --mono: "Cascadia Code", "Cascadia Mono", Consolas, "SFMono-Regular", Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      width: 8.5in;
+      height: 11in;
+      padding: 0.38in 0.6in 0.4in;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 92% 6%, rgba(186, 12, 47, 0.55), rgba(186, 12, 47, 0) 42%),
+        radial-gradient(circle at 0% 62%, rgba(186, 12, 47, 0.22), rgba(186, 12, 47, 0) 38%),
+        var(--bg);
+    }
+
+    /* Faint grid texture */
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 0.25in 0.25in;
+      pointer-events: none;
+    }
+
+    .page > * { position: relative; flex-shrink: 0; }
+
+    /* Top bar */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9.5pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 0.05in 0.14in;
+      border: 1.5px solid var(--red-bright);
+      border-radius: 999px;
+      color: var(--text);
+    }
+
+    /* Title */
+    .code {
+      margin: 0.2in 0 0;
+      font-family: var(--mono);
+      font-size: 17pt;
+      font-weight: 700;
+      color: var(--red-bright);
+    }
+
+    h1 {
+      margin: 0.02in 0 0;
+      font-size: 56pt;
+      line-height: 0.98;
+      font-weight: 900;
+      letter-spacing: -0.025em;
+    }
+
+    h1 .accent { color: var(--red-bright); }
+
+    .tagline {
+      margin: 0.26in 0 0;
+      font-size: 23pt;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .sub {
+      margin: 0.07in 0 0;
+      font-size: 14pt;
+      line-height: 1.45;
+      color: var(--muted);
+      max-width: 7in;
+    }
+
+    .sub strong { display: block; margin-top: 2px; color: var(--text); }
+
+    /* Terminal */
+    .terminal {
+      margin-top: 0.26in;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(20, 20, 24, 0.92);
+      box-shadow: 0 0 0 1px rgba(255, 59, 92, 0.08), 0 14px 40px rgba(0, 0, 0, 0.45);
+      overflow: hidden;
+    }
+
+    .term-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.07in;
+      padding: 0.08in 0.14in;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 8.5pt;
+      color: var(--muted);
+    }
+
+    .dot { width: 0.1in; height: 0.1in; border-radius: 50%; }
+    .dot.r { background: #ff5f57; }
+    .dot.y { background: #febc2e; }
+    .dot.g { background: #28c840; }
+    .term-bar span:last-child { margin-left: 0.1in; }
+
+    .term-body {
+      padding: 0.14in 0.2in 0.16in;
+      font-family: var(--mono);
+      font-size: 9.5pt;
+      line-height: 1.6;
+    }
+
+    .term-body p { margin: 0; white-space: pre; }
+    .prompt { color: var(--red-bright); font-weight: 700; }
+    .you { color: var(--text); font-weight: 700; }
+    .step { color: var(--muted); }
+    .step b { color: var(--amber); font-weight: 600; }
+    .ok { color: var(--green); font-weight: 700; }
+    .final { color: var(--text); }
+
+    /* Stack strip */
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.06in 0.1in;
+      margin-top: 0.22in;
+      font-family: var(--mono);
+      font-size: 9.5pt;
+      font-weight: 600;
+    }
+
+    .stack span {
+      padding: 0.03in 0.1in;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+    }
+
+    .stack .stack-label {
+      padding: 0;
+      border: 0;
+      background: none;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-size: 10pt;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red-bright);
+    }
+
+    /* Toolkit */
+    .section-label {
+      margin: 0.45in 0 0.14in;
+      display: flex;
+      align-items: center;
+      gap: 0.12in;
+      font-size: 10pt;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red-bright);
+    }
+
+    .section-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .chips {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.1in 0.12in;
+    }
+
+    .chip {
+      padding: 0.12in 0.16in;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      font-size: 13pt;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .chip span {
+      display: block;
+      margin-top: 0.02in;
+      font-family: var(--mono);
+      font-size: 9pt;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    /* Logistics */
+    .logistics {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      justify-content: space-between;
+      margin: 0.4in 0 0;
+      padding: 0.14in 0 0;
+      border-top: 2px solid var(--red-bright);
+    }
+
+    .logistics div { text-align: center; }
+
+    .logistics dt {
+      font-size: 8pt;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .logistics dd {
+      margin: 0.03in 0 0;
+      font-size: 12pt;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 0.28in;
+      padding: 0.16in;
+      border-radius: 12px;
+      background: var(--red);
+    }
+
+    footer img {
+      flex: none;
+      width: 1.05in;
+      height: 1.05in;
+      background: #ffffff;
+      border-radius: 6px;
+    }
+
+    .contact p { margin: 0; }
+
+    .contact .label {
+      font-size: 8.5pt;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .contact .url {
+      font-family: var(--mono);
+      font-size: 15pt;
+      font-weight: 700;
+    }
+
+    .contact .instructor {
+      margin-top: 0.08in;
+      font-size: 11.5pt;
+      font-weight: 700;
+    }
+
+    .contact .instructor span { font-weight: 400; opacity: 0.9; }
+
+    .contact .need {
+      margin-top: 0.05in;
+      font-size: 9pt;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <span>Ball State University · Computer Science</span>
+      <span class="pill">Spring 2027</span>
+    </div>
+
+    <p class="code">CS 439</p>
+    <h1>Agentic Software<br><span class="accent">Engineering</span></h1>
+
+    <p class="tagline">Lead your own team of AI coding agents.</p>
+    <p class="sub">Anyone can type a prompt. Leading a team of agents takes the engineering to make them deliver, and the judgment to know when they have. <strong>Train like a lead engineer.</strong></p>
+
+    <div class="section-label">The engineering behind better agents</div>
+    <div class="chips">
+      <div class="chip">Requirements<span>acceptance criteria</span></div>
+      <div class="chip">Design<span>architecture you own</span></div>
+      <div class="chip">Context<span>guiding your agents</span></div>
+      <div class="chip">Testing<span>tests as guardrails</span></div>
+      <div class="chip">Review<span>plans, designs &amp; evidence</span></div>
+      <div class="chip">Version control<span>small, traceable changes</span></div>
+      <div class="chip">CI/CD<span>automated quality gates</span></div>
+      <div class="chip">Security<span>your software &amp; your agents</span></div>
+    </div>
+
+    <dl class="logistics">
+      <div><dt>When</dt><dd>Tue &amp; Thu<br>2:00–3:15 PM</dd></div>
+      <div><dt>Where</dt><dd>RB130</dd></div>
+      <div><dt>Prerequisite</dt><dd>CS 222 Advanced<br>Programming</dd></div>
+      <div><dt>Open to</dt><dd>Juniors and<br>seniors</dd></div>
+    </dl>
+
+    <footer>
+      <img src="../assets/cs439-qr.svg" alt="QR code linking to hergin.github.io/cs439">
+      <div class="contact">
+        <p class="label">Course website</p>
+        <p class="url">hergin.github.io/cs439</p>
+        <p class="instructor">Dr. Huseyin Ergin <span>· hergin@bsu.edu</span></p>
+        <p class="need">You'll need a laptop and a Claude Code or Codex subscription for the semester.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
